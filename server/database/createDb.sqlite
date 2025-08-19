@@ -1,0 +1,84 @@
+DROP TABLE IF EXISTS Version;
+ 
+CREATE TABLE Version(major integer, minor integer);
+ 
+INSERT INTO
+    Version
+VALUES
+    (1, 0);
+ 
+DROP VIEW IF EXISTS V_Version;
+ 
+CREATE VIEW V_Version as
+SELECT
+    (Major + (Minor / 100.0)) CurrentVersion,
+    Major,
+    Minor
+FROM
+    Version;
+ 
+ 
+CREATE TABLE Projects (
+    id integer primary key AUTOINCREMENT not null,
+    manager VARCHAR(255) NOT NULL,
+    project_key VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    is_active BOOLEAN DEFAULT TRUE,
+    global_vars JSONB, -- Stores global variables as a JSON object
+    order_index INTEGER NOT NULL DEFAULT 0,
+    status VARCHAR(50) NOT NULL DEFAULT 'pending'
+);
+
+DROP TABLE IF EXISTS Tasks;
+CREATE TABLE Tasks (
+    id integer primary key AUTOINCREMENT not null,
+    guid TEXT NOT NULL UNIQUE,
+    project_id INT REFERENCES Projects(id) ON DELETE CASCADE,
+    name TEXT,
+    comment TEXT,
+    type VARCHAR(50) NOT NULL,
+    action INT NOT NULL,
+    task_params JSONB,
+    next_task_guid TEXT REFERENCES Tasks(guid) ON DELETE SET NULL,
+    is_active BOOLEAN DEFAULT TRUE,
+    status VARCHAR(50) NOT NULL DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    started_at TIMESTAMP,
+    completed_at TIMESTAMP
+);
+ 
+CREATE TABLE Logs (
+    id integer primary key AUTOINCREMENT not null,
+    task_id INT REFERENCES Tasks(id) ON DELETE CASCADE,
+    status VARCHAR(50), -- Success or Fail
+    log_level VARCHAR(10) NOT NULL DEFAULT 'info', -- info, warning, error
+    log_message TEXT,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+ 
+-- CREATE TABLE TaskRelationships (
+--     id SERIAL PRIMARY KEY,
+--     task_id INT REFERENCES Tasks(id) ON DELETE CASCADE,
+--     next_task_id INT REFERENCES Tasks(id) ON DELETE SET NULL
+-- );
+
+DROP TABLE IF EXISTS TaskTypes;
+
+CREATE VIEW V_TaskLogs AS
+SELECT 
+    l.id,
+    l.task_id,
+    t.guid as task_guid,
+    t.type as task_type,
+    t.action as task_action,
+    t.comment as task_comment,
+    t.task_params,
+    p.project_key,
+    l.status,
+    l.log_level,
+    l.log_message,
+    l.timestamp
+FROM Logs l
+JOIN Tasks t ON l.task_id = t.id
+JOIN Projects p ON t.project_id = p.id
+ORDER BY l.timestamp DESC;

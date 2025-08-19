@@ -1,0 +1,12 @@
+.blinking-tab {
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes blink {
+    0%, 50%, 100% {
+      background-color: transparent;
+    }
+    25%, 75% {
+      background-color: rgba(255, 0, 0, 0.2);
+    }
+  }

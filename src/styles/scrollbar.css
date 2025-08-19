@@ -1,0 +1,25 @@
+/* styles/scrollbar.css */
+
+.custom-scrollbar {
+    max-height: calc(100vh - 100px); /* Adjust based on your layout needs */
+    overflow-y: auto;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background-color: #f4f4f4;
+    border-radius: 4px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #a6a6a6;
+    border-radius: 4px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #888888;
+  }
+  

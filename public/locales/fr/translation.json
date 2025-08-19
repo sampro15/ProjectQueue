@@ -1,0 +1,13 @@
+{
+  "All":		"Tous"                                 ,
+  "7 days":	"7 jours"                              ,
+  "3 days":"3 jours"                               ,
+  "1 day":"1 jour"                                 ,
+  "Manager Details":"Détails du gestionnaire"      ,
+  "Queue Manager":"Gestionnaire de file d'attente" ,
+  "Yes":"Oui"                                      ,
+  "Cancel":"Annuler"                               ,
+  "Abort":"Abandonner"                             ,
+  "Pause":"Pause"                                  ,
+  "Resume":"Reprendre"
+}

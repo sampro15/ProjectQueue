@@ -1,0 +1,188 @@
+{
+    "version": "1.0",
+    "projects": [
+        {
+            "global_vars": {},
+            "project_key": "proj0",
+            "tasks": [
+                {
+                    "type": "PhotoMesh",
+                    "comment": "Creat Empty Project",
+                    "action": -1,
+                    "task_params": {
+                        "projectPath": "C:\\Users\\Administrator\\Desktop\\1234321\\1\\1.PhotoMeshXML"
+                    }
+                },
+				{
+				"comment": "New project from folder",
+				"type": "PhotoMesh",
+				"action": 0,
+				"task_params": {
+					"projectPath": "N:/PM Projects/ProjectFolder/ProjectName.PhotoMeshXML",
+					"buildFrom": 1,
+					"buildUntil": 6,
+					"inheritBuild": "",
+					"preset": "PhotoMesh Default",
+					"workingFolder": "C:/Sam/Jira - 793/Students Folder/PM CB/WorkingFolder",
+					"MaxLocalFusers": 10,
+					"MaxAWSFusers": 7,
+					"AWSFuserStartupScript": "script",
+					"AWSBuildConfigurationName": "AT_MultiCoreCPU",
+					"AWSBuildConfigurationJsonPath": "",
+					"sourceType": 0,
+					"sourcePath": [
+					{
+						"name": "RGB",
+						"path": "X:/SeeTree/agro_a7_sao_vicente_212/212",
+						"properties": "X:/SeeTree/agro_a7_sao_vicente_212/212/data.xml"
+					}
+					]
+				}
+				},
+				{
+					"comment": "Prospera; New Build; AT", 
+					"type": "PhotoMesh",
+					"action": 1, 
+					"task_params": {
+						"projectPath": "W:\\QA\\Automation\\Projects\\AT_Projects\\Prospera\\Prospera.PhotoMeshXML",
+						"buildFrom":2,
+						"buildUntil":2,
+						"inheritBuild":"Build_1",
+						"preset":"W:\\QA\\Automation\\Presets\\Prospera_Nightly_AT1.PMPreset",
+						"MaxLocalFusers": 20
+						}
+				},
+				    {
+					"comment": "orlando_water_area",
+					"type": "PhotoMesh",
+					"action": 2,
+					"task_params": {
+						"projectPath": "W:\\QA\\Automation\\Projects\\quality_3dml_runs\\Orlando\\AT_area_water\\AT_area_water.PhotoMeshXML",
+						"buildFrom": 0,
+						"buildUntil": 6,
+						"inheritBuild":"Build_1_772",
+						"preset": "photomesh default",
+						"MaxLocalFusers": 20,
+						"MaxAWSFusers": 0
+					}
+				},
+				{
+                    "type": "PhotoMesh",
+                    "comment": "Build",
+                    "action": 3,
+                    "task_params": {
+                        "buildFrom": 1,
+                        "buildUntil": 2,
+                        "inheritBuild": "",
+                        "preset": "PhotoMesh default",
+                        "workingFolder": "N:\\users\\Sam\\MyProject\\WorkingFolder",
+                        "MaxLocalFusers": 10,
+                        "MaxAWSFusers": 0,
+                        "AWSFuserStartupScript": "",
+                        "AWSBuildConfigurationName": "",
+                        "AWSBuildConfigurationJsonPath": ""
+                    }
+                },
+				{
+                    "type": "PhotoMesh",
+                    "comment": "pause",
+                    "action": 4
+                },
+				{
+					"type": "Queue",
+                    "comment": "run script",
+                    "action": 0,
+                    "task_params": {
+                        "path": "C:\\Users\\Administrator\\Downloads\\GCPfiles\\ProjQueue\\zip_folder.py"
+                    }
+				},
+                {
+                    "type": "PhotoMesh",
+                    "comment": "import csv",
+                    "filePath": "C:\\Users\\Administrator\\Downloads\\img\\1\\testcsv.csv",
+                    "action": 7,
+                    "task_params": {
+                        "jsonAPI": {
+                            "filePath": "C:\\Users\\Administrator\\Downloads\\img\\1\\testcsv.csv",
+                            "headers": {
+                                "ImagePath": "#1",
+                                "X": "#2",
+                                "Y": "#3",
+                                "Altitude": "#4",
+                                "Yaw": 5,
+                                "Pitch": 6,
+                                "Roll": 7,
+                                "CollectionId": 8,
+                                "GpsTime": 9
+                            },
+                            "dataAtRow": 1,
+                            "headersAtRow": 0,
+                            "dataSeparator": ",",
+                            "headerSeparator": ",",
+                            "extentionType": "",
+                            "selectedFolderPath": "C:\\Users\\Administrator\\Downloads\\img",
+                            "searchSubFolder": true
+                        }
+                    }
+                },
+				{
+                    "type": "PhotoMesh",
+                    "comment": "import GCP",
+                    "filePath": "C:\\Users\\Administrator\\Downloads\\GCPfiles\\123tt123.txt",
+                    "action": 8,
+                    "task_params": {
+                        "filePath": "C:\\Users\\Administrator\\Downloads\\GCPfiles\\123tt123.txt",
+                        "jsonAPI": {
+                            "filePath": "C:\\Users\\Administrator\\Downloads\\GCPfiles\\123tt123.txt",
+                            "headersAtRow": 1,
+                            "dataAtRow": 2,
+                            "headerSeparator": " ",
+                            "dataSeparator": " ",
+                            "headers": {
+                                "Name": "#4",
+                                "X": "#1",
+                                "Y": "#2",
+                                "Altitude": "#3"
+                            },
+                            "coordinateSystem": "123",
+                            "pointType": 1,
+                            "haveNoHeaders": false
+                        }
+                    }
+                },
+				{
+                    "type": "PhotoMesh",
+                    "comment": "Load GCP",
+                    "action": 10,
+                    "task_params": {
+                       "gcpPath":"C:\\Users\\Administrator\\Downloads\\GCPfiles\\123tt123.gcp"
+                    }
+                },
+				{
+                    "type": "PhotoMesh",
+                    "comment": "Load photos",
+                    "action": 11,
+                    "task_params": {
+                        "sourceType": 2,
+                        "sourcePath": [
+                            {
+                                "name": "",
+                                "path": "C:\\MyProject\\MyProject\\Photos\\Frederick.xlsx",
+                                "properties": ""
+                            }
+                        ]
+                    }
+                },
+				{
+                    "type": "PhotoMesh",
+                    "comment": "Open Existing Project",
+                    "action": 12,
+                    "task_params": {
+                        "projectPath": "N:\\users\\Sam\\MyProject\\New1Project.PhotoMeshXML"
+                    }
+                }
+				
+            ]
+        }
+	]
+}

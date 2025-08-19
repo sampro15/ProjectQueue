@@ -1,0 +1,22 @@
+/* styles.css */
+@keyframes blink {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.blinkingButton {
+  animation: blink 1s step-start 0s infinite;
+  background-color: #f44336;
+  color: white;
+}
+
+.blinkingButton:hover {
+  background-color: #d32f2f;
+}

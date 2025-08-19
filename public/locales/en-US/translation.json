@@ -1,0 +1,13 @@
+{
+  "All"               :  "All"            ,
+  "7 days"            : "7 days"          ,
+  "3 days"            : "3 days"          ,
+  "1 day"             : "1 day"           ,
+  "Manager Details"   : "Manager Details" ,
+  "Queue Manager"     : "Queue Manager"   ,
+  "Yes"               : "Yes"             ,
+  "Cancel"            : "Cancel"          ,
+  "Abort"             : "Abort"           ,
+  "Pause"             : "Pause"           ,
+  "Resume"            : "Resume" 
+}
